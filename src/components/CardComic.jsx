@@ -1,8 +1,6 @@
 import Link from "next/link";
 
 export default function CardComic({ src, title, chapter, rating, link }) {
-  const slug = link.split("/").pop();
-  console.log(slug);
   return (
     <Link
       href={`${link}`}

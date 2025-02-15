@@ -165,7 +165,10 @@ export default async function ({ params }) {
               <Link
                 key={"chapter-" + chapter.chapterNum}
                 className="mb-2 columns-1 border rounded-lg p-2 h-14 flex flex-col"
-                href="/"
+                href={`/chapter/${chapter.chapterLink
+                  .split("/")
+                  .filter(Boolean)
+                  .pop()}`}
               >
                 <span className="text-base font-semibold">
                   {chapter.chapterNum}
