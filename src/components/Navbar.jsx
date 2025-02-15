@@ -9,7 +9,7 @@ export default function Navbar() {
         href="/"
         className={`${
           pathName == "/" &&
-          "bg-sky-500 rounded-full shadow-md transition-all ease-in-out  p-3 text-white"
+          "bg-black rounded-full shadow-md transition-all ease-in-out  p-3 text-white"
         }`}
       >
         <svg

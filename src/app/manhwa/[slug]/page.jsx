@@ -1,4 +1,5 @@
 import Container from "@/components/Container";
+import Footer from "@/components/Footer";
 import Title from "@/components/Title";
 import Link from "next/link";
 
@@ -32,11 +33,11 @@ export default async function ({ params }) {
         {/* end judul  */}
         {/* tipe dan status  */}
         <section className=" w-full grid grid-cols-2 gap-3 my-2">
-          <div className="flex p-2 justify-between columns-1 border rounded-lg shadow-md">
+          <div className="flex p-2 justify-between columns-1 border rounded-lg bg-black text-white">
             <span>Tipe :</span>
             <span className="font-semibold">{mangaDetails.type}</span>
           </div>
-          <div className="flex p-2 justify-between columns-1 border rounded-lg shadow-md">
+          <div className="flex p-2 justify-between columns-1 border rounded-lg bg-black text-white">
             <span>Status :</span>
             <span className="font-semibold">{mangaDetails.status}</span>
           </div>
@@ -180,6 +181,7 @@ export default async function ({ params }) {
         </section>
         {/* end list chapter  */}
       </Container>
+      <Footer />
     </main>
   );
 }

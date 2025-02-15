@@ -1,5 +1,6 @@
 import CardComic from "@/components/CardComic";
 import Container from "@/components/Container";
+import Footer from "@/components/Footer";
 import Title from "@/components/Title";
 import Image from "next/image";
 
@@ -67,9 +68,9 @@ export default async function Home() {
           </svg>
         </Title>
       </Container>
-      <hr className="mb-5" />
+      <hr />
       <Container>
-        <section className="w-full gap-5 grid grid-cols-2">
+        <section className="w-full gap-5 grid grid-cols-2  py-5">
           {manhwas.map((manhwa) => (
             <CardComic
               key={manhwa.title}
@@ -82,6 +83,7 @@ export default async function Home() {
           ))}
         </section>
       </Container>
+      <Footer />
     </main>
   );
 }
