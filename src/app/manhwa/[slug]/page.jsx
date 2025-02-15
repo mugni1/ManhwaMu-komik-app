@@ -1,4 +1,6 @@
 import Container from "@/components/Container";
+import Title from "@/components/Title";
+import Link from "next/link";
 
 async function getMangaDetail(slug) {
   try {
@@ -23,20 +25,24 @@ export default async function ({ params }) {
           alt="image"
           className="w-1/2 mx-auto my-5 rounded-xl shadow-lg border"
         />
+        {/* judul  */}
         <h1 className="font-semibold text-xl flex gap-1">
           "{mangaDetails.title}"
         </h1>
+        {/* end judul  */}
+        {/* tipe dan status  */}
         <section className=" w-full grid grid-cols-2 gap-3 my-2">
-          <div className="flex p-2 justify-between columns-1 border rounded-lg">
-            <span>Tipe</span>
-            <span>{mangaDetails.type}</span>
+          <div className="flex p-2 justify-between columns-1 border rounded-lg shadow-md">
+            <span>Tipe :</span>
+            <span className="font-semibold">{mangaDetails.type}</span>
           </div>
-          <div className="flex p-2 justify-between columns-1 border rounded-lg ">
-            <span>Status</span>
-            <span>{mangaDetails.status}</span>
+          <div className="flex p-2 justify-between columns-1 border rounded-lg shadow-md">
+            <span>Status :</span>
+            <span className="font-semibold">{mangaDetails.status}</span>
           </div>
         </section>
-
+        {/* end tipe dan status  */}
+        {/* sinopsis  */}
         <section className="w-full flex flex-col mb-2">
           <h2 className="font-semibold text-lg flex gap-1">
             <svg
@@ -56,6 +62,8 @@ export default async function ({ params }) {
           </h2>
           <p className="text-justify">{mangaDetails.synopsis}</p>
         </section>
+        {/* end sinopsis */}
+        {/* tahun rilis */}
         <section className="w-full flex flex-col mb-2">
           <h2 className="font-semibold text-lg flex gap-1">
             <svg
@@ -75,6 +83,8 @@ export default async function ({ params }) {
           </h2>
           <p className="text-justify">{mangaDetails.released}</p>
         </section>
+        {/* end tahun rilis */}
+        {/* Pengarang */}
         <section className="w-full flex flex-col mb-2">
           <h2 className="font-semibold text-lg flex gap-1">
             <svg
@@ -93,6 +103,8 @@ export default async function ({ params }) {
           </h2>
           <p className="text-justify">{mangaDetails.author}</p>
         </section>
+        {/* end Pengarang */}
+        {/* Ilustrator */}
         <section className="w-full flex flex-col mb-2">
           <h2 className="font-semibold text-lg flex gap-1">
             <svg
@@ -111,6 +123,8 @@ export default async function ({ params }) {
           </h2>
           <p className="text-justify">{mangaDetails.artist}</p>
         </section>
+        {/*end Ilustrator */}
+        {/* genres  */}
         <section className="w-full flex flex-wrap mb-2 gap-3">
           <h2 className="font-semibold text-lg w-full flex gap-1">
             <svg
@@ -132,6 +146,36 @@ export default async function ({ params }) {
             </button>
           ))}
         </section>
+        {/* end genres */}
+        {/* list chapter  */}
+        <section className="w-full rounded-xl shadow-md p-3 border flex flex-col">
+          <Title title="Chapter list">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              className="size-6"
+            >
+              <path d="M5.625 3.75a2.625 2.625 0 1 0 0 5.25h12.75a2.625 2.625 0 0 0 0-5.25H5.625ZM3.75 11.25a.75.75 0 0 0 0 1.5h16.5a.75.75 0 0 0 0-1.5H3.75ZM3 15.75a.75.75 0 0 1 .75-.75h16.5a.75.75 0 0 1 0 1.5H3.75a.75.75 0 0 1-.75-.75ZM3.75 18.75a.75.75 0 0 0 0 1.5h16.5a.75.75 0 0 0 0-1.5H3.75Z" />
+            </svg>
+          </Title>
+          <hr className="mb-2" />
+          <div className=" h-80 w-full  overflow-y-scroll gap-2 grid grid-cols-2">
+            {mangaDetails.chapters.map((chapter) => (
+              <Link
+                key={"chapter-" + chapter.chapterNum}
+                className="mb-2 columns-1 border rounded-lg p-2 h-14 flex flex-col"
+                href="/"
+              >
+                <span className="text-base font-semibold">
+                  {chapter.chapterNum}
+                </span>
+                <span className="text-xs">{chapter.chapterDate}</span>
+              </Link>
+            ))}
+          </div>
+        </section>
+        {/* end list chapter  */}
       </Container>
     </main>
   );

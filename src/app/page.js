@@ -1,6 +1,7 @@
 import CardComic from "@/components/CardComic";
 import Container from "@/components/Container";
 import Title from "@/components/Title";
+import Image from "next/image";
 
 export const metadata = {
   title: "ManwaMu",
@@ -26,6 +27,23 @@ export default async function Home() {
   const manhwas = await getManhwaPopular();
   return (
     <main className=" w-full">
+      <Container>
+        <section className="flex w-full flex-col gap-2 mt-5">
+          <h1 className="text-5xl">
+            <span className="font-bold">WELCOME</span>
+          </h1>
+          <h1 className="text-3xl">
+            <span>ENJOY READS MANGA</span>
+          </h1>
+          <Image
+            src="/panel.png"
+            alt=""
+            className="rounded-xl shadow-md w-full"
+            height={200}
+            width={500}
+          />
+        </section>
+      </Container>
       <Container>
         <Title title="Trending">
           <svg
