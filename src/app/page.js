@@ -1,6 +1,8 @@
 import CardComic from "@/components/CardComic";
 import Container from "@/components/Container";
+import Navbar from "@/components/Navbar";
 import Title from "@/components/Title";
+import Link from "next/link";
 
 export const metadata = {
   title: "ManwaMu",
@@ -45,7 +47,7 @@ export default async function Home() {
           </svg>
         </Title>
       </Container>
-      <hr />
+      <hr className="mb-5" />
       <Container>
         <section className="w-full gap-5 grid grid-cols-2">
           {manhwas.map((manhwa) => (
@@ -60,6 +62,7 @@ export default async function Home() {
           ))}
         </section>
       </Container>
+      <Navbar />
     </main>
   );
 }
