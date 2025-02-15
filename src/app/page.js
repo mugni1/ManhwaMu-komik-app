@@ -1,18 +1,20 @@
 import CardComic from "@/components/CardComic";
 import Container from "@/components/Container";
-import Navbar from "@/components/Navbar";
 import Title from "@/components/Title";
-import Link from "next/link";
 
 export const metadata = {
   title: "ManwaMu",
   description: "Tempat baca manhwa dan manhua gratis",
 };
+
 async function getManhwaPopular() {
   try {
     const res = await fetch("https://kurokami.vercel.app/api/manhwa-popular", {
       method: "GET",
       cache: "force-cache",
+      next: {
+        revalidate: 60 * 60,
+      },
     });
     return res.json();
   } catch (error) {
@@ -62,7 +64,6 @@ export default async function Home() {
           ))}
         </section>
       </Container>
-      <Navbar />
     </main>
   );
 }
