@@ -39,7 +39,7 @@ export default async function Home() {
           <Image
             src="/panel.png"
             alt=""
-            className="rounded-xl shadow-md w-full"
+            className="rounded-xl w-full"
             height={200}
             width={500}
           />
