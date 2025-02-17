@@ -53,8 +53,8 @@ export default async function ChapterDetailPage({ params }) {
       </Container>
       <Container>
         <section className="w-full flex flex-col">
-          {chapters.images.map((img, index) => (
-            <img key={index} src={img} alt="" className="border" />
+          {chapters.images.map((image) => (
+            <img key={image} src={image} alt="image" className="border" />
           ))}
         </section>
       </Container>
