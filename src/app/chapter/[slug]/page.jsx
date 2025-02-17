@@ -25,8 +25,13 @@ export default async function ChapterDetailPage({ params }) {
           {chapters.title}
         </h1>
       </Container>
+      <section className="w-full flex flex-col">
+        {chapters.images.map((image) => (
+          <img key={image} src={image} alt="image" className="w-full" />
+        ))}
+      </section>
       <Container>
-        <section className="w-full grid grid-cols-2 gap-5 mb-5">
+        <section className="w-full grid grid-cols-2 gap-5 mt-5 mb-24">
           {chapters.prevChapter != null && (
             <Link
               href={`/chapter/${chapters.prevChapter
@@ -49,13 +54,6 @@ export default async function ChapterDetailPage({ params }) {
               Next
             </Link>
           )}
-        </section>
-      </Container>
-      <Container>
-        <section className="w-full flex flex-col">
-          {chapters.images.map((image) => (
-            <img key={image} src={image} alt="image" className="border" />
-          ))}
         </section>
       </Container>
     </main>
